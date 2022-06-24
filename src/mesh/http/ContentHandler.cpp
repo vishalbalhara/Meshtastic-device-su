@@ -165,7 +165,7 @@ void handleAPIv1FromRadio(HTTPRequest *req, HTTPResponse *res)
     res->setHeader("Content-Type", "application/x-protobuf");
     res->setHeader("Access-Control-Allow-Origin", "*");
     res->setHeader("Access-Control-Allow-Methods", "GET");
-    res->setHeader("X-Protobuf-Schema", "https://raw.githubusercontent.com/meshtastic/Meshtastic-protobufs/master/mesh.proto");
+    res->setHeader("X-Protobuf-Schema", "https://raw.githubusercontent.com/sulomesh/Sulomesh-protobufs/master/mesh.proto");
 
     uint8_t txBuf[MAX_STREAM_BUF_SIZE];
     uint32_t len = 1;
@@ -209,7 +209,7 @@ void handleAPIv1ToRadio(HTTPRequest *req, HTTPResponse *res)
     res->setHeader("Access-Control-Allow-Headers", "Content-Type");
     res->setHeader("Access-Control-Allow-Origin", "*");
     res->setHeader("Access-Control-Allow-Methods", "PUT, OPTIONS");
-    res->setHeader("X-Protobuf-Schema", "https://raw.githubusercontent.com/meshtastic/Meshtastic-protobufs/master/mesh.proto");
+    res->setHeader("X-Protobuf-Schema", "https://raw.githubusercontent.com/sulomesh/sulomesh-protobufs/master/mesh.proto");
 
     if (req->getMethod() == "OPTIONS") {
         res->setStatusCode(204); // Success with no content
@@ -384,9 +384,9 @@ void handleStatic(HTTPRequest *req, HTTPResponse *res)
             res->setHeader("Content-Type", "text/html");
             if (!file.available()) {
                 DEBUG_MSG("File not available - %s\n", filenameGzip.c_str());
-                res->println("Web server is running.<br><br>The content you are looking for can't be found. Please see: <a "
-                             "href=https://meshtastic.org/docs/getting-started/faq#wifi--web-browser>FAQ</a>.<br><br><a "
-                             "href=/admin>admin</a>");
+                // res->println("Web server is running.<br><br>The content you are looking for can't be found. Please see: <a "
+                //              "href=https://meshtastic.org/docs/getting-started/faq#wifi--web-browser>FAQ</a>.<br><br><a "
+                //              "href=/admin>admin</a>");
 
                 return;
 
@@ -688,7 +688,7 @@ void handleDeleteFsContent(HTTPRequest *req, HTTPResponse *res)
     res->setHeader("Access-Control-Allow-Origin", "*");
     res->setHeader("Access-Control-Allow-Methods", "GET");
 
-    res->println("<h1>Meshtastic</h1>\n");
+    res->println("<h1>Sulomesh</h1>\n");
     res->println("Deleting Content in /static/*");
 
     DEBUG_MSG("Deleting files from /static/* : \n");
@@ -704,7 +704,7 @@ void handleAdmin(HTTPRequest *req, HTTPResponse *res)
     res->setHeader("Access-Control-Allow-Origin", "*");
     res->setHeader("Access-Control-Allow-Methods", "GET");
 
-    res->println("<h1>Meshtastic</h1>\n");
+    res->println("<h1>Sulomesh</h1>\n");
     res->println("<a href=/admin/settings>Settings</a><br>\n");
     res->println("<a href=/admin/fs>Manage Web Content</a><br>\n");
     res->println("<a href=/json/report>Device Report</a><br>\n");
@@ -716,7 +716,7 @@ void handleAdminSettings(HTTPRequest *req, HTTPResponse *res)
     res->setHeader("Access-Control-Allow-Origin", "*");
     res->setHeader("Access-Control-Allow-Methods", "GET");
 
-    res->println("<h1>Meshtastic</h1>\n");
+    res->println("<h1>Sulomesh</h1>\n");
     res->println("This isn't done.\n");
     res->println("<form action=/admin/settings/apply method=post>\n");
     res->println("<table border=1>\n");
@@ -738,7 +738,7 @@ void handleAdminSettingsApply(HTTPRequest *req, HTTPResponse *res)
     res->setHeader("Content-Type", "text/html");
     res->setHeader("Access-Control-Allow-Origin", "*");
     res->setHeader("Access-Control-Allow-Methods", "POST");
-    res->println("<h1>Meshtastic</h1>\n");
+    res->println("<h1>Sulomesh</h1>\n");
     res->println(
         "<html><head><meta http-equiv=\"refresh\" content=\"1;url=/admin/settings\" /><title>Settings Applied. </title>");
 
@@ -752,7 +752,7 @@ void handleFs(HTTPRequest *req, HTTPResponse *res)
     res->setHeader("Access-Control-Allow-Origin", "*");
     res->setHeader("Access-Control-Allow-Methods", "GET");
 
-    res->println("<h1>Meshtastic</h1>\n");
+    res->println("<h1>Sulomesh</h1>\n");
     res->println("<a href=/admin/fs/delete>Delete Web Content</a><p><form action=/admin/fs/update "
                  "method=post><input type=submit value=UPDATE_WEB_CONTENT></form>Be patient!");
     res->println("<p><hr><p><a href=/admin>Back to admin</a>\n");
@@ -764,7 +764,7 @@ void handleRestart(HTTPRequest *req, HTTPResponse *res)
     res->setHeader("Access-Control-Allow-Origin", "*");
     res->setHeader("Access-Control-Allow-Methods", "GET");
 
-    res->println("<h1>Meshtastic</h1>\n");
+    res->println("<h1>Sulomesh</h1>\n");
     res->println("Restarting");
 
     DEBUG_MSG("***** Restarted on HTTP(s) Request *****\n");

@@ -95,7 +95,7 @@ const char *getDeviceName()
 
     // Meshtastic_ab3c
     static char name[20];
-    sprintf(name, "Meshtastic_%02x%02x", dmac[4], dmac[5]);
+    sprintf(name, "Sulomesh_%02x%02x", dmac[4], dmac[5]);
     return name;
 }
 
@@ -224,7 +224,7 @@ void setup()
 #endif
 
     // Hello
-    DEBUG_MSG("Meshtastic hwvendor=%d, swver=%s\n", HW_VENDOR, optstr(APP_VERSION));
+    DEBUG_MSG("Sulomesh hwvendor=%d, swver=%s\n", HW_VENDOR, optstr(APP_VERSION));
 
 #ifndef NO_ESP32
     // Don't init display if we don't have one or we are waking headless due to a timer event

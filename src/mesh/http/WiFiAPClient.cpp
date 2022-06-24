@@ -153,11 +153,11 @@ static void onNetworkConnected()
         DEBUG_MSG("... Starting network services\n");
 
         // start mdns
-        if (!MDNS.begin("Meshtastic")) {
+        if (!MDNS.begin("Sulomesh")) {
             DEBUG_MSG("Error setting up MDNS responder!\n");
         } else {
             DEBUG_MSG("mDNS responder started\n");
-            DEBUG_MSG("mDNS Host: Meshtastic.local\n");
+            DEBUG_MSG("mDNS Host: Sulomesh.local\n");
             MDNS.addService("http", "tcp", 80);
             MDNS.addService("https", "tcp", 443);
         }
@@ -184,8 +184,8 @@ bool initWifi(bool forceSoftAP)
 {
     forcedSoftAP = forceSoftAP;
 
-    // strcpy(radioConfig.preferences.wifi_ssid, "meshtastic");
-    // strcpy(radioConfig.preferences.wifi_password, "meshtastic!");
+    // strcpy(radioConfig.preferences.wifi_ssid, "sulomesh");
+    // strcpy(radioConfig.preferences.wifi_password, "sulomesh!");
 
     if ((radioConfig.has_preferences && radioConfig.preferences.wifi_ssid[0]) || forceSoftAP) {
         const char *wifiName = radioConfig.preferences.wifi_ssid;
@@ -212,7 +212,7 @@ bool initWifi(bool forceSoftAP)
                 WiFi.mode(WIFI_AP);
 
                 if (forcedSoftAP) {
-                    const char *softAPssid = "meshtasticAdmin";
+                    const char *softAPssid = "sulomeshAdmin";
                     const char *softAPpasswd = "12345678";
                     int ok = WiFi.softAP(softAPssid, softAPpasswd);
                     DEBUG_MSG("Starting (Forced) WIFI AP: ssid=%s, ok=%d\n", softAPssid, ok);
@@ -233,7 +233,7 @@ bool initWifi(bool forceSoftAP)
             } else {
                 uint8_t dmac[6];
                 getMacAddr(dmac);
-                sprintf(ourHost, "Meshtastic-%02x%02x", dmac[4], dmac[5]);
+                sprintf(ourHost, "Sulomesh-%02x%02x", dmac[4], dmac[5]);
 
                 WiFi.mode(WIFI_MODE_STA);
                 WiFi.setHostname(ourHost);

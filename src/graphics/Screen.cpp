@@ -130,7 +130,7 @@ static void drawIconScreen(const char *upperMsg, OLEDDisplay *display, OLEDDispl
 
     display->setFont(FONT_MEDIUM);
     display->setTextAlignment(TEXT_ALIGN_LEFT);
-    const char *title = "meshtastic.org";
+    const char *title = "suryatel.com";
     display->drawString(x + getStringCenteredX(title), y + SCREEN_HEIGHT - FONT_HEIGHT_MEDIUM, title);
     display->setFont(FONT_SMALL);
 
@@ -246,7 +246,7 @@ static void drawWelcomeScreen(OLEDDisplay *display, OLEDDisplayUiState *state, i
 
         display->setTextAlignment(TEXT_ALIGN_LEFT);
 
-        display->drawString(x, y + FONT_HEIGHT_SMALL * 2 - 3, "Visit meshtastic.org");
+        display->drawString(x, y + FONT_HEIGHT_SMALL * 2 - 3, "Contact sales@suryatel.com");
         display->drawString(x, y + FONT_HEIGHT_SMALL * 3 - 3, "for more information.");
         display->drawString(x, y + FONT_HEIGHT_SMALL * 4 - 3, "");
     }
@@ -345,7 +345,7 @@ static void drawCriticalFaultFrame(OLEDDisplay *display, OLEDDisplayUiState *sta
     display->drawString(0 + x, 0 + y, tempBuf);
     display->setTextAlignment(TEXT_ALIGN_LEFT);
     display->setFont(FONT_SMALL);
-    display->drawString(0 + x, FONT_HEIGHT_MEDIUM + y, "For help, please visit \nmeshtastic.org");
+    display->drawString(0 + x, FONT_HEIGHT_MEDIUM + y, "For help, please contact \nsales@suryatel.com");
 }
 
 // Ignore messages orginating from phone (from the current node 0x0) unless range test or store and forward module are enabled
@@ -1462,7 +1462,7 @@ void DebugInfo::drawFrameWiFi(OLEDDisplay *display, OLEDDisplayUiState *state, i
 
     if (isSoftAPForced()) {
         if ((millis() / 10000) % 2) {
-            display->drawString(x, y + FONT_HEIGHT_SMALL * 2, "SSID: meshtasticAdmin");
+            display->drawString(x, y + FONT_HEIGHT_SMALL * 2, "SSID: sulomeshAdmin");
         } else {
             display->drawString(x, y + FONT_HEIGHT_SMALL * 2, "PWD: 12345678");
         }
@@ -1478,7 +1478,7 @@ void DebugInfo::drawFrameWiFi(OLEDDisplay *display, OLEDDisplayUiState *state, i
             display->drawString(x, y + FONT_HEIGHT_SMALL * 2, "SSID: " + String(wifiName));
         }
     }
-    display->drawString(x, y + FONT_HEIGHT_SMALL * 3, "http://meshtastic.local");
+    display->drawString(x, y + FONT_HEIGHT_SMALL * 3, "http://sulomesh.local");
 
     /* Display a heartbeat pixel that blinks every time the frame is redrawn */
 #ifdef SHOW_REDRAWS

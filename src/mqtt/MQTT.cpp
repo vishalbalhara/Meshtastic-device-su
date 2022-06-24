@@ -106,10 +106,10 @@ MQTT::MQTT() : concurrency::OSThread("mqtt"), pubSub(mqttClient)
 void MQTT::reconnect()
 {
     if (wantsLink()) {
-        const char *serverAddr = "mqtt.meshtastic.org"; // default hostname
+        const char *serverAddr = "mqtt.suryatel.com"; // default hostname
         int serverPort = 1883;                          // default server port
-        const char *mqttUsername = "meshdev";
-        const char *mqttPassword = "large4cats";
+        const char *mqttUsername = "losumesh";
+        const char *mqttPassword = "mark4tangle";
 
         if (*radioConfig.preferences.mqtt_server) {
             serverAddr = radioConfig.preferences.mqtt_server;     // Override the default

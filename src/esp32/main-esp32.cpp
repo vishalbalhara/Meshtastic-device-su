@@ -76,7 +76,7 @@ void esp32Setup()
 
     // Create object to store our persistant data
     Preferences preferences;
-    preferences.begin("meshtastic", false);
+    preferences.begin("sulomesh", false);
 
     uint32_t rebootCounter = preferences.getUInt("rebootCounter", 0);
     rebootCounter++;

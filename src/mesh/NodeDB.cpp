@@ -235,7 +235,7 @@ void NodeDB::init()
 
 #ifndef NO_ESP32
     Preferences preferences;
-    preferences.begin("meshtastic", false);
+    preferences.begin("sulomesh", false);
     myNodeInfo.reboot_count = preferences.getUInt("rebootCounter", 0);
     preferences.end();
     DEBUG_MSG("Number of Device Reboots: %d\n", myNodeInfo.reboot_count);

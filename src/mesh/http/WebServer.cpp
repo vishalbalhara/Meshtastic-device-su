@@ -68,7 +68,7 @@ static void handleWebResponse()
 
 static void taskCreateCert(void *parameter)
 {
-    prefs.begin("MeshtasticHTTPS", false);
+    prefs.begin("SulomeshHTTPS", false);
 
 #if 0
     // Delete the saved certs (used in debugging)
@@ -103,7 +103,7 @@ static void taskCreateCert(void *parameter)
         yield();
         cert = new SSLCert();
         yield();
-        int createCertResult = createSelfSignedCert(*cert, KEYSIZE_2048, "CN=meshtastic.local,O=Meshtastic,C=US",
+        int createCertResult = createSelfSignedCert(*cert, KEYSIZE_2048, "CN=sulomesh.local,O=Sulomesh,C=US",
                                                     "20190101000000", "20300101000000");
         yield();
 
