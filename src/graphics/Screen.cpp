@@ -101,6 +101,7 @@ static uint16_t displayWidth, displayHeight;
 
 #define FONT_HEIGHT_SMALL fontHeight(FONT_SMALL)
 #define FONT_HEIGHT_MEDIUM fontHeight(FONT_MEDIUM)
+#define FONT_HEIGHT_LARGE fontHeight(FONT_LARGE)
 
 #define getStringCenteredX(s) ((SCREEN_WIDTH - display->getStringWidth(s)) / 2)
 
@@ -118,13 +119,14 @@ static void drawIconScreen(const char *upperMsg, OLEDDisplay *display, OLEDDispl
     // needs to be drawn relative to x and y
 
     // draw centered icon left to right and centered above the one line of app text
-    display->drawXbm(x + (SCREEN_WIDTH - icon_width) / 2, y + (SCREEN_HEIGHT - FONT_HEIGHT_MEDIUM - icon_height) / 2 + 2,
-                     icon_width, icon_height, (const uint8_t *)icon_bits);
+    // display->drawXbm(x + (SCREEN_WIDTH - icon_width) / 2, y + (SCREEN_HEIGHT - FONT_HEIGHT_MEDIUM - icon_height) / 2 + 2,
+    //                  icon_width, icon_height, (const uint8_t *)icon_bits);
 
-    display->setFont(FONT_MEDIUM);
+    display->setFont(FONT_LARGE);
     display->setTextAlignment(TEXT_ALIGN_LEFT);
-    const char *title = "meshtastic.org";
-    display->drawString(x + getStringCenteredX(title), y + SCREEN_HEIGHT - FONT_HEIGHT_MEDIUM, title);
+    const char *title = "sulofi";
+    // display->drawString(x + getStringCenteredX(title), y + SCREEN_HEIGHT - FONT_HEIGHT_MEDIUM, title);
+    display->drawString(x + getStringCenteredX(title), y + (SCREEN_HEIGHT - FONT_HEIGHT_LARGE)/2, title);
     display->setFont(FONT_SMALL);
 
     // Draw region in upper left
